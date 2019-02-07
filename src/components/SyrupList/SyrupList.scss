@@ -1,0 +1,36 @@
+
+.syrup-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+}
+.syrup-container__item{
+        padding: 0.2rem;
+        margin: 0.3rem;
+        border-radius: 10px;
+        border: solid 2px #4C2207;
+        background-color: #FFFFFF22; 
+        transition: 0.5s;
+}
+.syrup-container__item:hover{
+        color: #FFF;
+        background-color: #4C2207   
+}
+.syrup-container h3{
+        margin: 0;
+}
+.dividor{
+        background-color: #4C2207 ;
+        width: 2px;
+        height: 2rem;
+        margin: 0 0.5rem;
+}
+.avaliable{
+        border: solid 2px rgb(121, 79, 53);
+        cursor: pointer;
+}
+.avaliable:hover{
+        background-color: rgb(121, 79, 53);
+}

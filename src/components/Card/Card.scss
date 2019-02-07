@@ -1,0 +1,22 @@
+.card {
+     
+        background-color: #00000099;
+        min-width: 20%;
+        min-height: 20%;
+        width: auto;
+        height: auto;
+        display: flex;
+        margin: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+.padding{
+        padding: 1rem;
+}
+.white{
+        background-color: #FFFFFF55;  
+}
+.no-transparent{
+        background-color: #000;
+}

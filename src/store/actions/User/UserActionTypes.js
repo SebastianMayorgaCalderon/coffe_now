@@ -1,0 +1,9 @@
+export const LOGIN = 'user/LOGIN'
+export const LOGOUT = 'user/LOGOUT'
+
+export const ADD_ALL_HISTORY_DRINKS = 'user/ADD_ALL_HISTORY_DRINKS'
+export const ADD_DRINK_TO_ORDER = 'user/ADD_DRINK_TO_ORDER'
+export const ADD_DRINK_TO_HISTORY = 'user/ADD_DRINK_TO_HISTORY'
+export const REMOVE_DRINK_FROM_ORDER = 'user/REMOVE_DRINK_FROM_ORDER'
+
+export const UPDATE_DRINK_FROM_ORDER = 'user/UPDATE_DRINK_FROM_ORDER'

@@ -1,0 +1,76 @@
+{
+        "users": [
+                {
+                        "userName": "sebas708",
+                        "email": "sebasmayorga7@gmail.com",
+                        "password": "3c54fa24fadcd3ad04f25c170f9366f3",
+                        "id": 1
+                },
+                {
+                        "userName": "ale55",
+                        "email": "ale@gmail.com",
+                        "password": "a1f4ab81746e9c50f16058052ba17c9d",
+                        "id": 2
+                }
+        ],
+        "drinks": [
+                {
+                        "id": "1",
+                        "name": "Chocolate with milk",
+                        "description": "Delicious forozen Chocolate with Milk",
+                        "image": "http://elestimulo.com/bienmesabe/wp-content/uploads/sites/7/2016/02/MERENGADA_P-624x351.jpg",
+                        "syrups": [],
+                        "type": "Cold",
+                        "milk": "Regular"
+                },
+                {
+                        "id": "2",
+                        "name": "Capuchino with Mint",
+                        "description": "Delicious forozen Chocolate with Milk",
+                        "image": "https://ichef.bbci.co.uk/news/ws/660/amz/worldservice/live/assets/images/2015/09/06/150906142439_capuchino_cafe_historia_624x351_getty.jpg",
+                        "syrups": [
+                                "Mint",
+                                "Marshmellow",
+                                "Cherry "
+                        ],
+                        "type": "hot",
+                        "milk": "Regular"
+                },
+                {
+                        "id": "3",
+                        "name": "Frozen Capuchino",
+                        "description": "Delicious forozen Chocolate with Milk",
+                        "image": "https://okdiario.com/img/2018/03/17/cafe-capuchino-655x368.jpg",
+                        "syrups": [
+                                "Mint"
+                        ],
+                        "type": "cold",
+                        "milk": "Regular"
+                },
+                {
+                        "id": "4",
+                        "name": "Expresso",
+                        "description": "Delicious forozen Chocolate with Milk",
+                        "image": "https://dpegb9ebondhq.cloudfront.net/product_photos/51399401/expresso_original.jpg",
+                        "type": "hot",
+                        "milk": "Regular",
+                        "syrups": [
+                                "Mint"
+                        ]
+                }
+        ],
+        "avaliableSyrups": [
+                "Mint",
+                "Marshmellow",
+                "Vanilla",
+                "Caramel",
+                "Honey"
+        ],
+        "avaliableMilks": [
+                "Regular",
+                "Almond",
+                "Full",
+                "Semi-Skim",
+                "Skim"
+        ]
+}

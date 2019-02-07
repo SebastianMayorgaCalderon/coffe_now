@@ -1,0 +1,33 @@
+.order-drinks__container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        color: #FFF;
+}
+.order-item{
+        flex-basis: 30%;
+}
+.center-y{
+        align-items: center;
+}
+.qr-code-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+
+@media only screen and (max-width: 1200px) {
+        .order-item{
+                flex-basis: 50%;
+        }
+ }
+ @media only screen and (max-width: 750px) {
+        .order-item{
+                flex-basis: 50%;
+        }
+        .order-drinks__container {
+                flex-wrap: nowrap;
+                flex-direction: column;
+        }
+ }

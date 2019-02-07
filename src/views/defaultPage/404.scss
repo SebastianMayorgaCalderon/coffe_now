@@ -1,0 +1,18 @@
+.container-404 {
+  background: url('../../assets/images/attractive-bar-barista.jpg') no-repeat;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #595959;
+  img {
+    width: 80%;
+  }
+  h1 {
+    margin: 1rem 0 0 0;
+  }
+}

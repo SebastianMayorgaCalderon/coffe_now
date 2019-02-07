@@ -1,0 +1,26 @@
+.drink-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 40%;
+        color: white;
+}
+.drink-container img{
+        width: 100%;
+}
+.drink-container h3, p{
+        margin: 0.5rem;
+}
+.drink-title-contianer{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 98%;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+}
+.spacer {
+        flex: 1;
+ }
+      
