@@ -17,7 +17,7 @@ const EditDrinkControls = ({
 	const avaliableSyrups = syrups
 		.filter(
 			syrupsToSee =>
-				!usedSyrups.find(syrupToCheck => syrupToCheck == syrupsToSee)
+				!usedSyrups.find(syrupToCheck => syrupToCheck === syrupsToSee)
 		)
 		.map(syrup => (
 			<div
@@ -30,7 +30,7 @@ const EditDrinkControls = ({
 		))
 
 	const avaliableMilks = milks
-		.filter(milk => milk != usdeMilk)
+		.filter(milk => milk !== usdeMilk)
 		.map(avaliableMilk => (
 			<div
 				className="syrup-container__item avaliable"

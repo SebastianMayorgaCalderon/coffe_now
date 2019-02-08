@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Card from '../Card/Card'
 import './DrinkListItem.scss'
 import Button from '../Button/Button';
-import SyrupList from '../SyrupList/SyrupList';
 
 const DrinkListItem = ({ drink , history}) => (
 	<Card>

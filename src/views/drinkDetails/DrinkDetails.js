@@ -32,8 +32,9 @@ class DrinkDetails extends Component {
 	}
 
 	getAllDrinks = () => {
-		Axios.get(`${BASE_URL}/drinks`).then(res => {
-			this.props.addAllDrinks(res.data)
+		Axios.get(`${BASE_URL}/drinks.json`).then(res => {
+			const result = Object.values(res.data)
+			this.props.addAllDrinks(result)
 			const { drinks, match } = this.props
 			if (
 				this.props.order.find(drinkToFind => drinkToFind.id === match.params.id)
@@ -111,6 +112,7 @@ class DrinkDetails extends Component {
 									onRemoveSyrup={this.onRemoveSyrup}
 								/>
 							) : null}
+							<div className="line-break" />
 							{this.props.order.find(
 								drinkToFind => drinkToFind.id === drink.id
 							) ? (

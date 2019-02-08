@@ -20,10 +20,11 @@ class Drinks extends Component {
 
 	componentDidMount() {
 		this.setState({ loading: true })
-		Axios.get(`${BASE_URL}/drinks`)
+		Axios.get(`${BASE_URL}/drinks.json`)
 			.then(res => {
+				const result = Object.values(res.data)
 				// eslint-disable-next-line react/destructuring-assignment
-				this.props.addAllDrinks(res.data)
+				this.props.addAllDrinks(result)
 				this.setState({
 					loading: false,
 				})

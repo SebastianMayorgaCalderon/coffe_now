@@ -8,7 +8,7 @@ import Toolbar from '../../components/Toolbar/Toolbar'
 import SideDrawer from '../../components/SideDrawer/SideDrawer'
 import BackDrop from '../../components/BackDrop/BackDrop'
 import Drinks from '../drinks/Drinks'
-import './home.css'
+import './home.scss'
 import DrinkDetails from '../drinkDetails/DrinkDetails'
 import Order from '../order/Order'
 import {
@@ -31,11 +31,13 @@ class Home extends Component {
 				pathname: '/login',
 			})
 		} else {
-			Axios.get(`${BASE_URL}/avaliableSyrups`).then(res => {
-				this.props.addAvaliableSyrups(res.data)
+			Axios.get(`${BASE_URL}/avaliableSyrups.json`).then(res => {
+				const result = Object.values(res.data)
+				this.props.addAvaliableSyrups(result)
 			})
-			Axios.get(`${BASE_URL}/avaliableMilks`).then(res => {
-				this.props.addAllAvaliableMiltTypes(res.data)
+			Axios.get(`${BASE_URL}/avaliableMilks.json`).then(res => {
+				const result = Object.values(res.data)
+				this.props.addAllAvaliableMiltTypes(result)
 			})
 		}
 	}

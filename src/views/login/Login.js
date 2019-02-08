@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import './Login.css'
+import './Login.scss'
 import Axios from 'axios'
 import { connect } from 'react-redux'
 import md5 from 'blueimp-md5'
@@ -36,11 +36,15 @@ class Login extends Component {
 
 	login = () => {
 		const { username } = this.state
-		Axios.get(`${BASE_URL}/users?userName=${username}`).then(res => {
-			if (res.data.length === 0) {
+		Axios.get(`${BASE_URL}/users.json`).then(res => {
+			const result = Object.values(res.data)
+			const user = result.find(
+				userToSearch => userToSearch.userName === username
+			)
+			if (!user) {
 				this.errorMessage()
 			} else {
-				this.checkCredentials(res.data[0].password)
+				this.checkCredentials(user.password)
 			}
 		})
 	}
@@ -101,6 +105,7 @@ class Login extends Component {
 								label="User name"
 								value={username}
 								onChange={value => this.setState({ username: value })}
+								valid={username !== ''}
 							/>
 							<Input
 								name="Password"
@@ -108,6 +113,7 @@ class Login extends Component {
 								value={password}
 								type="password"
 								onChange={value => this.setState({ password: value })}
+								valid={password !== ''}
 							/>
 							<div className="login-form__controls">
 								<Button text="SingUp" type="DANGER" onClick={this.toSignUp} />

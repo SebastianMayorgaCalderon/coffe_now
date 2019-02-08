@@ -1,3 +1,4 @@
+/* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react'
@@ -22,7 +23,6 @@ class Order extends Component {
 		loading: false,
 		showQrCode: false,
 		width: null,
-		height: null,
 	}
 
 	componentDidMount() {
@@ -58,7 +58,7 @@ class Order extends Component {
 	}
 
 	updateWindowDimensions = () => {
-		this.setState({ width: window.innerWidth, height: window.innerHeight })
+		this.setState({ width: window.innerWidth })
 	}
 
 	getQrCodeSize = () => {

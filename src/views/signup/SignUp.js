@@ -20,11 +20,11 @@ import { BASE_URL } from '../../constants'
 
 class SignUp extends Component {
 	state = {
-		username: 'sebas',
-		password: 'kiko',
-		confirmPassword: 'kiko',
+		username: '',
+		password: '',
+		confirmPassword: '',
 		loading: false,
-		email: 'sebas@sebas.com',
+		email: '',
 	}
 
 	componentDidMount() {
@@ -41,9 +41,7 @@ class SignUp extends Component {
 		return (
 			username === '' ||
 			password === '' ||
-			confirmPassword === '' ||
 			email === '' ||
-			confirmPassword !== password ||
 			!this.validateEmail(email)
 		)
 	}
@@ -62,22 +60,28 @@ class SignUp extends Component {
 
 	onSignUp = () => {
 		const { email, username } = this.state
-		Axios.get(`${BASE_URL}/users?email=${email}&&userName=${username}`).then(
-			res => {
-				if (res.data.length === 0) {
-					this.register()
-				} else {
-					this.resetForm()
-					new Noty({
-						type: 'error',
-						theme: 'relax',
-						layout: 'topRight',
-						text: 'Looks like that email or user name  is already in use',
-						timeout: 3000,
-					}).show()
-				}
+		Axios.get(`${BASE_URL}/users.json`).then(res => {
+			debugger
+			const result = Object.values(res.data).filter(value => value)
+			const list = result.filter(userToSearch => {
+				debugger
+				return (
+					userToSearch.userName === username || userToSearch.email === email
+				)
+			})
+			if (list.length === 0) {
+				this.register()
+			} else {
+				this.resetForm()
+				new Noty({
+					type: 'error',
+					theme: 'relax',
+					layout: 'topRight',
+					text: 'Looks like that email or user name  is already in use',
+					timeout: 3000,
+				}).show()
 			}
-		)
+		})
 	}
 
 	resetForm = () => {
@@ -99,7 +103,7 @@ class SignUp extends Component {
 			email,
 			password: md5(password),
 		}
-		Axios.post(`${BASE_URL}/users`, user)
+		Axios.post(`${BASE_URL}/users.json`, user)
 			.then(res => {
 				new Noty({
 					type: 'success',
@@ -122,13 +126,13 @@ class SignUp extends Component {
 	}
 
 	render() {
-		const { username, password, loading, confirmPassword, email } = this.state
+		const { username, password, loading, email } = this.state
 
 		return (
 			<div className="container-signup">
 				<Card padding transparent>
 					<img src={Logo} alt="Coffe now Logo Dark" className="grow-efect" />
-					<h1>Sing up</h1>
+					<h1>Sign up</h1>
 					{loading ? (
 						<Loader />
 					) : (
@@ -138,6 +142,7 @@ class SignUp extends Component {
 								label="*User name*"
 								value={username}
 								onChange={value => this.setState({ username: value })}
+								valid={username !== ''}
 							/>
 							<Input
 								name="Email"
@@ -145,6 +150,7 @@ class SignUp extends Component {
 								value={email}
 								type="text"
 								onChange={value => this.setState({ email: value })}
+								valid={this.validateEmail(email)}
 							/>
 							<Input
 								name="Password"
@@ -152,13 +158,7 @@ class SignUp extends Component {
 								value={password}
 								type="password"
 								onChange={value => this.setState({ password: value })}
-							/>
-							<Input
-								name="ConfirmPassword"
-								label="*Confirm Password*"
-								value={confirmPassword}
-								type="password"
-								onChange={value => this.setState({ confirmPassword: value })}
+								valid={password !== ''}
 							/>
 							<div className="login-form__controls">
 								<Button text="Log in" type="DANGER" onClick={this.toLogin} />

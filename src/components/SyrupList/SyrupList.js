@@ -18,7 +18,6 @@ const SyrupList = ({ syrupList, onRemoveSyrup, canRemove }) => (
 				</div>
 			</div>
 		))}
-		<div className="dividor" />
 	</div>
 )
 
